@@ -23,11 +23,6 @@ variable "instance_count" {
   type        = number
 }
 
-variable "server_count" {
-  description = "Number of K3s server nodes"
-  type        = number
-}
-
 variable "memory" {
   description = "Memory (bytes) for K3s nodes"
   type        = number

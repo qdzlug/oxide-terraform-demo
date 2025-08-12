@@ -98,19 +98,3 @@ locals {
   external_ip = local.node_ips[0]
 }
 
-
-resource "local_file" "inventory_yaml" {
-  filename = "${path.root}/../../inventory.yml"
-  content = templatefile("${path.root}/templates/inventory.yml.tpl", {
-    node_ips     = local.node_ips,
-    server_count = var.server_count,
-    nginx_lb_ip  = local.nginx_lb_ip,
-    backend_ips  = local.internal_node_ips,
-    ansible_user = var.ansible_user,
-    test_token    = var.test_token,
-    test_version  = var.test_version,
-    api_endpoint = local.api_endpoint,
-    internal_ip  = local.internal_ip,
-    external_ip  = local.external_ip
-  })
-}
