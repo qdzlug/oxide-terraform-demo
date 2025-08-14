@@ -3,7 +3,7 @@ terraform {
   required_providers {
     oxide = {
       source  = "oxidecomputer/oxide"
-      version = "0.5.0"
+      version = "0.13.0"
     }
   }
 }
@@ -30,7 +30,7 @@ resource "oxide_vpc" "test" {
 data "oxide_vpc_subnet" "default" {
   project_name = data.oxide_project.test.name
   vpc_name     = oxide_vpc.test.name
-  name         = "testsubnet"
+  name         = "default"
 }
 
 resource "oxide_disk" "nodes" {
